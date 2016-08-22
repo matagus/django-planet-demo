@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 	# 3rd-party required apps:
-	#'pagination',
 	'tagging',
+    'pagination',
+    'pinax_theme_bootstrap',
 	# and finally:
 	'planet',
 ]
@@ -54,7 +55,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'pagination.middleware.PaginationMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'sample_project.urls'
@@ -62,7 +63,9 @@ ROOT_URLCONF = 'sample_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            '/Users/matagus/Projects/sample-projects/django-planet-project/django18/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,11 +73,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-				# 'django.template.context_processors.i18n',
-				# 'django.template.context_processors.media',
-				# 'django.template.context_processors.static',
-				# 'django.template.context_processors.tz',
-                # 'planet.context_processors.context',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'planet.context_processors.context',
             ],
         },
     },
@@ -82,6 +85,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sample_project.wsgi.application'
 
+STATIC_ROOT = '/Users/matagus/Projects/sample-projects/django-planet-project/django18/public/assets'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
