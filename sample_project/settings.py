@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+	# 3rd-party required apps:
+	#'pagination',
+	'tagging',
+	# and finally:
+	'planet',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -48,6 +54,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'pagination.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'sample_project.urls'
@@ -63,6 +70,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+				# 'django.template.context_processors.i18n',
+				# 'django.template.context_processors.media',
+				# 'django.template.context_processors.static',
+				# 'django.template.context_processors.tz',
+                # 'planet.context_processors.context',
             ],
         },
     },
@@ -119,3 +131,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PLANET = {
+    "USER_AGENT": "My Planet/1.0",
+}
+
+SITE_ID = 1
+
+# LANGUAGE_COOKIE_NAME = "myplanetlng"
+# SESSION_COOKIE_NAME = "myplanetid"
